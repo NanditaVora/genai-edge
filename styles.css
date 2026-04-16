@@ -10,7 +10,9 @@
   padding: 0;
 }
 
-:root {
+/* ---- Dark theme (default) ---- */
+:root,
+[data-theme="dark"] {
   --color-bg:           #070b13;
   --color-bg-card:      #0e1420;
   --color-bg-card-alt:  #111827;
@@ -24,13 +26,53 @@
   --color-text-faint:   #4b5563;
   --color-border:       rgba(255, 255, 255, 0.07);
   --color-border-hover: rgba(240, 165, 0, 0.4);
-  --font-main:          'Inter', sans-serif;
-  --font-display:       'Space Grotesk', sans-serif;
-  --radius-card:        16px;
-  --radius-sm:          8px;
-  --transition:         0.3s ease;
+  --color-nav-bg:       rgba(7, 11, 19, 0.95);
+  --color-cta-bg:       linear-gradient(135deg, #0e1420 0%, #0a0d16 100%);
+  --color-footer-brand: #f1f5f9;
   --shadow-card:        0 4px 24px rgba(0, 0, 0, 0.5);
   --shadow-hover:       0 12px 48px rgba(0, 0, 0, 0.7);
+  --hero-glow-left:     rgba(59, 130, 246, 0.4);
+  --hero-glow-right:    rgba(240, 165, 0, 0.3);
+  --grid-line:          rgba(255, 255, 255, 0.025);
+}
+
+/* ---- Light theme ---- */
+[data-theme="light"] {
+  --color-bg:           #f5f7fa;
+  --color-bg-card:      #ffffff;
+  --color-bg-card-alt:  #f0f4f8;
+  --color-accent:       #d97706;
+  --color-accent-dim:   rgba(217, 119, 6, 0.1);
+  --color-accent-glow:  rgba(217, 119, 6, 0.3);
+  --color-blue:         #2563eb;
+  --color-blue-dim:     rgba(37, 99, 235, 0.1);
+  --color-text-primary: #0f172a;
+  --color-text-muted:   #475569;
+  --color-text-faint:   #94a3b8;
+  --color-border:       rgba(0, 0, 0, 0.08);
+  --color-border-hover: rgba(217, 119, 6, 0.4);
+  --color-nav-bg:       rgba(245, 247, 250, 0.95);
+  --color-cta-bg:       linear-gradient(135deg, #ffffff 0%, #f0f4f8 100%);
+  --color-footer-brand: #0f172a;
+  --shadow-card:        0 4px 24px rgba(0, 0, 0, 0.08);
+  --shadow-hover:       0 12px 48px rgba(0, 0, 0, 0.15);
+  --hero-glow-left:     rgba(59, 130, 246, 0.15);
+  --hero-glow-right:    rgba(217, 119, 6, 0.15);
+  --grid-line:          rgba(0, 0, 0, 0.04);
+}
+
+/* ---- Shared tokens (layout, typography) ---- */
+:root {
+  --font-main:    'Inter', sans-serif;
+  --font-display: 'Space Grotesk', sans-serif;
+  --radius-card:  16px;
+  --radius-sm:    8px;
+  --transition:   0.3s ease;
+}
+
+/* Smooth theme transition on all elements */
+*, *::before, *::after {
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
 }
 
 html {
@@ -78,7 +120,7 @@ img {
 }
 
 .navbar.scrolled {
-  background: rgba(7, 11, 19, 0.95);
+  background: var(--color-nav-bg);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   box-shadow: 0 1px 0 var(--color-border);
@@ -142,6 +184,45 @@ img {
   box-shadow: 0 4px 16px var(--color-accent-glow);
 }
 
+/* ---- Theme toggle button ---- */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  background: transparent;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: background var(--transition), border-color var(--transition), color var(--transition), transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+.theme-toggle:hover {
+  background: var(--color-accent-dim);
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  transform: rotate(20deg);
+}
+
+/* Show/hide correct icon based on theme */
+[data-theme="dark"]  .theme-icon--moon,
+[data-theme="light"] .theme-icon--sun  { display: none; }
+[data-theme="dark"]  .theme-icon--sun,
+[data-theme="light"] .theme-icon--moon { display: block; }
+
+/* Default (dark) when no attribute set */
+:root:not([data-theme="light"]) .theme-icon--moon { display: none; }
+:root:not([data-theme="light"]) .theme-icon--sun  { display: block; }
+
 .hamburger {
   display: none;
   flex-direction: column;
@@ -183,8 +264,8 @@ img {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
   background-size: 60px 60px;
   mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, black 30%, transparent 100%);
   -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, black 30%, transparent 100%);
@@ -201,13 +282,13 @@ img {
 }
 
 .hero-glow--left {
-  background: rgba(59, 130, 246, 0.4);
+  background: var(--hero-glow-left);
   top: -100px;
   left: -150px;
 }
 
 .hero-glow--right {
-  background: rgba(240, 165, 0, 0.3);
+  background: var(--hero-glow-right);
   bottom: -100px;
   right: -150px;
 }
@@ -495,7 +576,7 @@ img {
   width: 100%;
   aspect-ratio: 16 / 10;
   overflow: hidden;
-  background: #0a1020;
+  background: var(--color-bg-card-alt);
 }
 
 .card-image-wrap img {
@@ -524,7 +605,7 @@ img {
   position: absolute;
   top: 12px;
   left: 12px;
-  background: rgba(7, 11, 19, 0.8);
+  background: rgba(0, 0, 0, 0.55);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   border: 1px solid var(--color-border);
@@ -630,8 +711,8 @@ img {
 
 .cta-card {
   position: relative;
-  background: linear-gradient(135deg, #0e1420 0%, #0a0d16 100%);
-  border: 1px solid rgba(240, 165, 0, 0.2);
+  background: var(--color-cta-bg);
+  border: 1px solid rgba(217, 119, 6, 0.2);
   border-radius: 24px;
   overflow: hidden;
   padding: 80px 40px;
@@ -777,7 +858,7 @@ img {
     right: -100%;
     width: 260px;
     height: 100vh;
-    background: rgba(7, 11, 19, 0.98);
+    background: var(--color-nav-bg);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-left: 1px solid var(--color-border);

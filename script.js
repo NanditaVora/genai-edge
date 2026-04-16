@@ -6,6 +6,26 @@
 (function () {
   'use strict';
 
+  /* ---- Theme toggle ---- */
+  const html        = document.documentElement;
+  const themeToggle = document.getElementById('themeToggle');
+  const STORAGE_KEY = 'genai-edge-theme';
+
+  function applyTheme(theme) {
+    html.setAttribute('data-theme', theme);
+    localStorage.setItem(STORAGE_KEY, theme);
+    themeToggle.setAttribute('aria-label', theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
+  }
+
+  // Restore saved preference or default to dark
+  const savedTheme = localStorage.getItem(STORAGE_KEY) || 'dark';
+  applyTheme(savedTheme);
+
+  themeToggle.addEventListener('click', function () {
+    const current = html.getAttribute('data-theme') || 'dark';
+    applyTheme(current === 'dark' ? 'light' : 'dark');
+  });
+
   /* ---- Navbar: scroll effect ---- */
   const navbar = document.getElementById('navbar');
 
