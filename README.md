@@ -84,6 +84,24 @@ To deploy manually: go to **Actions → Deploy static content to Pages → Run w
 
 ---
 
+## Auto Push Every 5 Minutes (Optional)
+
+If you want local changes to be committed and pushed automatically every 5 minutes, run:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\auto-push.ps1
+```
+
+Optional parameters:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\auto-push.ps1 -Branch main -IntervalMinutes 5 -CommitMessagePrefix "chore: auto-save"
+```
+
+Stop it any time with `Ctrl+C`.
+
+---
+
 ## Tech Stack
 
 - HTML5, CSS3, Vanilla JavaScript

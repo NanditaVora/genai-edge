@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="GenAI Essentials for Students - Build AI-first study, research, and career workflows in just 24 hours." />
+  <title>GenAI Essentials for Students | GenAI Edge</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script>
+    (function () {
+      var t = localStorage.getItem('genai-edge-theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <a href="index.html" class="logo-text">GenAI<span class="logo-accent">Edge</span></a>
+      </div>
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html#about">About</a>
+        <a href="index.html#courses">Courses</a>
+        <a href="index.html#enroll" class="nav-cta">Get Started</a>
+      </nav>
+      <div class="nav-right">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark theme">
+          <svg class="theme-icon theme-icon--sun" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.8" />
+            <path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+          </svg>
+          <svg class="theme-icon theme-icon--moon" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero" id="about">
+    <div class="hero-bg-grid"></div>
+    <div class="hero-glow hero-glow--left"></div>
+    <div class="hero-glow hero-glow--right"></div>
+    <div class="hero-container">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        <span>Student Track</span>
+      </div>
+      <h1 class="hero-title">
+        GenAI Essentials
+        <span class="hero-title-highlight">for Students</span>
+      </h1>
+      <p class="hero-description">
+        A practical, project-based course to help students use GenAI for faster learning, stronger output,
+        and better career readiness.
+      </p>
+      <div class="hero-actions">
+        <a href="#modules" class="btn-primary">Explore Modules</a>
+        <a href="index.html#enroll" class="btn-secondary">Enroll Interest</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-intro" id="modules">
+    <div class="container">
+      <div class="section-tag">What You Learn</div>
+      <h2 class="section-title">Course Modules</h2>
+      <p class="section-subtitle">Each module combines live demos, prompts, and workflow templates.</p>
+    </div>
+  </section>
+
+  <section class="gallery-section">
+    <div class="container">
+      <div class="gallery-grid">
+        <article class="use-case-card visible">
+          <div class="card-body">
+            <h3 class="card-title">AI for Learning and Revision</h3>
+            <p class="card-brief">Turn textbooks, notes, and lectures into structured summaries and flashcards.</p>
+          </div>
+        </article>
+        <article class="use-case-card visible">
+          <div class="card-body">
+            <h3 class="card-title">Research Assistant Workflow</h3>
+            <p class="card-brief">Collect sources, compare claims, and draft research briefs faster.</p>
+          </div>
+        </article>
+        <article class="use-case-card visible">
+          <div class="card-body">
+            <h3 class="card-title">Presentations and Assignments</h3>
+            <p class="card-brief">Use AI to plan arguments, improve writing quality, and design slides.</p>
+          </div>
+        </article>
+        <article class="use-case-card visible">
+          <div class="card-body">
+            <h3 class="card-title">Career-Ready Portfolio</h3>
+            <p class="card-brief">Build resume bullets, project narratives, and interview-ready case stories.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section" id="enroll">
+    <div class="container">
+      <div class="cta-card">
+        <div class="cta-glow"></div>
+        <div class="cta-content">
+          <div class="section-tag">Start Now</div>
+          <h2 class="cta-title">Become AI-First in 3 Days</h2>
+          <p class="cta-description">Join the student track and start applying AI in your academic workflow immediately.</p>
+          <a href="index.html#enroll" class="btn-primary btn-primary--large">Submit Enrollment Interest</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <span class="logo-text">GenAI<span class="logo-accent">Edge</span></span>
+          <p>GenAI Essentials for Students</p>
+        </div>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="courses-educators.html">Educator Track</a>
+          <a href="#enroll">Enroll</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 GenAI Edge. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
